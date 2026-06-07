@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wichtige Nachricht!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        h1 {
+            color: #333;
+        }
+        .hidden-content {
+            display: none;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="box" onclick="startRickRoll()">
+    <div id="fake-content">
+        <h1>⚠️ Du hast eine ungelesene Nachricht</h1>
+        <p>Klicke hier, um die wichtige Mitteilung zu öffnen...</p>
+    </div>
+    
+    <div id="rick-content" class="hidden-content">
+        <h1>Never Gonna Give You Up! 🕺</h1>
+        <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Rick Roll">
+    </div>
+</div>
+
+<audio id="rick-audio" src="Rick.mp3" loop></audio>
+
+<script>
+    function startRickRoll() {
+        // Versteckt den harmlosen Text und zeigt Rick Astley
+        document.getElementById('fake-content').style.display = 'none';
+        document.getElementById('rick-content').style.display = 'block';
+        
+        // Spielt den Sound ab
+        var audio = document.getElementById('rick-audio');
+        audio.play().catch(function(error) {
+            console.log("Audio-Wiedergabe fehlgeschlagen: ", error);
+        });
+    }
+</script>
+
+</body>
+</html>
